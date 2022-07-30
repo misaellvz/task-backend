@@ -16,7 +16,16 @@ describe('TaskResolver', () => {
   describe('find operators', () => {
     beforeEach(async () => {
       const module: TestingModule = await Test.createTestingModule({
-        providers: [ObjectIdScalar, TaskResolver, TaskRepository, TaskService],
+        providers: [
+          ObjectIdScalar,
+          TaskResolver,
+          TaskRepository,
+          TaskService,
+          {
+            provide: getModelToken(Task.name),
+            useClass: TaskModel,
+          },
+        ],
       }).compile();
 
       resolver = module.get<TaskResolver>(TaskResolver);
