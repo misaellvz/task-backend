@@ -26,6 +26,12 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Previous Requirements
+
+* Docker [link to install](https://www.docker.com/get-started/)
+* Docker-compose [link to install](https://docs.docker.com/compose/install/)
+* Mongodb
+
 ## Installation
 
 ```bash
@@ -35,6 +41,9 @@ $ npm install
 ## Running the app
 
 ```bash
+# start database
+$ npm run start:db
+
 # development
 $ npm run start
 
