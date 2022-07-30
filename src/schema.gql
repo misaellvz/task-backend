@@ -1,0 +1,32 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateTaskDto {
+  description: String!
+}
+
+type Mutation {
+  createTask(input: CreateTaskDto!): Task!
+  deleteTask(id: ObjectId!): Task!
+  updateTask(id: ObjectId!, input: UpdateTaskDto!): Task!
+  updateTaskCompleteStatus(id: ObjectId!): Task!
+}
+
+"""MongoDB ObjectId scalar type."""
+scalar ObjectId
+
+type Query {
+  task(id: ObjectId!): Task!
+  tasks: [Task!]!
+}
+
+type Task {
+  _id: ObjectId!
+  description: String!
+  isCompleted: Boolean!
+}
+
+input UpdateTaskDto {
+  description: String!
+}
