@@ -5,6 +5,7 @@ import { AppModule } from './../src/app.module';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
+  let server: any;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -13,6 +14,13 @@ describe('AppController (e2e)', () => {
 
     app = moduleFixture.createNestApplication();
     await app.init();
+
+    server = app.getHttpServer();
+  });
+
+  afterEach(async () => {
+    await app.close();
+    server.close();
   });
 
   it('/ (GET)', () => {
